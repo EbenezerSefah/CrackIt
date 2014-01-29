@@ -1,4 +1,6 @@
 CrackIt::Application.routes.draw do
+  resources :sessions
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,6 +20,14 @@ resources :home do
   collection do
     get 'login'
     get 'dashboard'
+  end
+end
+
+resources :interview do
+  collection do
+    post 'setup'
+    post 'room'
+    post 'save_interview'
   end
 end
 

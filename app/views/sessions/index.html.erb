@@ -1,0 +1,31 @@
+<h1>Listing sessions</h1>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Creator ID</th>
+      <th>Time</th>
+      <th>Note</th>
+      <th>Interviewer Email</th>
+      <th>Interviewee Email</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sessions.each do |session| %>
+      <tr>
+        <td><%= session.creator_id%></td>
+        <td><%= session.time%></td>
+        <td><%= session.note%></td>
+        <td><%= session.interviewer_email%></td>
+        <td><%= session.interviewee_email%></td>
+        <td><%= link_to 'Show', session %> <%= link_to 'Edit', edit_session_path(session) %> <%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Session', new_session_path %>

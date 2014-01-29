@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<div class="sesh-tabs inlineb">
+	<ul class="nav nav-tabs">
+	  <li class="active"><a href="#sesh-descript">Description</a></li>
+	  <li><a href="#sesh-note">Personal Notes</a></li>
+	  <li><a href="#sesh-code">Code</a></li>
+	  <li><a href="#sesh-video">Video</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="sesh-descript">
+			<div>
+				<span class = "inlineb">Time: </span>
+				<div class = "inlineb content"><%= @session.time.strftime("%b %d, %Y")%> </div>
+			</div>
+			<div>
+				<span class = "inlineb">Note: </span>
+				<div class = "inlineb content"><%= @session.note%> </div>
+			</div>
+			<div>
+				<span class = "inlineb">Interviewer Email: </span>
+				<div class = "inlineb content"><%= @session.interviewer_email%> </div>
+			</div>
+			<div>
+				<span class = "inlineb">Interviewee Email: </span>
+				<div class = "inlineb content"><%= @session.interviewee_email%> </div>
+			</div>
+		</div>
+		<div class="tab-pane" id="sesh-code">
+			<% @session.codes.each do |code|%>
+				<span class = "inlineb">Code: </span>
+				<div class = "inlineb content"><%= code.code_text%> </div>
+			<%end%>
+		</div>
+		<div class="tab-pane" id="sesh-video">
+			<iframe src="http://www.youtube.com/embed/GTUIlOudlHI?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+			<% @session.videos.each do |note|%>
+			<%end%>
+		</div>
+		<div class="tab-pane" id="sesh-note" >
+			<% @session.personal_notes.each do |note|%>
+				<span class = "inlineb">Note: </span>
+				<div class = "inlineb content"><%= note.note%> </div>
+			<%end%>
+		</div>
+	</div>
+</div>

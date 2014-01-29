@@ -1,1 +1,73 @@
-<p>Yeah</p>
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  <div class ="current-int inlineb scroll-y">
+    <h5>Current Interviews </h5>
+    <% @new_sesh.each do |sesh|%>
+    <div class="sesh">
+      <div class= "sec-width inlineb">
+        <div class = "inlineb time">Time: <%= sesh.time.strftime("%b %d, %Y")%></div>
+        <div class = "inlineb note scroll-y">Note: <%= sesh.note%></div>
+      </div>
+      <div class="sec-width inlineb">
+        <div class = "inlineb inter">Interviewer: <%= sesh.interviewer_email%></div>
+        <div class = "inlineb intee"> Interviewee: <%= sesh.interviewee_email%></div>
+        <div class = "inlineb but"><%= button_to("Start", { controller: "interview", action: "setup", data: {:id => sesh.id}, form: { "data-type" => "json" }},{:class => "btn-small inlineb"})%> | <%= link_to 'View', sesh, {:class => "inlineb btn"} %></div>
+
+      </div>
+    </div>
+    <hr>
+    <% end%>
+  </div>
+  <div class ="create-int inlineb">
+    <%= form_for(Session.new, :url => sessions_path, :method => "post", :html => {:class => "form-horizontal"}) do |f| %>
+      <%= f.hidden_field :creator_id, :value => current_user.id %>
+
+      <div> <span>Date: </span>
+      <%= f.datetime_select :time%></div>
+      <br/>
+
+      <div> <span>Note: </span>
+      <%= f.text_area :note, :class => "bck" %></div>
+      <br/>
+
+      <div><span>Interviewer Email: </span>
+      <%= f.email_field :interviewer_email, :class => "bck" %></div>
+      <br/>
+
+      <div><span>Interviewee Email: </span>
+      <%= f.email_field :interviewee_email, :class => "bck" %></div>
+      <br/>
+
+      <div class="actions">
+        <%= f.submit "Create Interview",  :class => "btn-small"%>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="old-int inlineb ">
+    <h5>Old Interviews </h5>
+    <table class = "table table-striped">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Note</th>
+          <th>Interviewer Email</th>
+          <th>Interviewee Email</th>
+          <th>View</th>
+        </tr>
+      </thead>
+
+      <tbody class="scroll-y">
+        <% @old_sesh.each do |session| %>
+          <tr>
+            <td><%= session.time.strftime("%b %d, %Y")%></td>
+            <td><%= session.note%></td>
+            <td><%= session.interviewer_email%></td>
+            <td><%= session.interviewee_email%></td>
+            <td><%= link_to 'View', session %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

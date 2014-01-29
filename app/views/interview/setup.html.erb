@@ -1,0 +1,18 @@
+<div class="int-setup inlineb">
+	<h1>Set Up</h1>
+	<div class="setup-form inlineb">
+		<%= form_tag(:controller => "interview",:action => "room") do %>
+			<h4>Choose your role: </h4>
+			<%= hidden_field_tag(:session_id, @session.id) %>
+			<div>
+				<%= radio_button_tag(:role, "Interviewer", :class => "inlineb") %>
+				<%= label_tag(:role_Interviewer, "Interviewer", :class => "inlineb") %>
+			</div>
+			<div>
+				<%= radio_button_tag(:role, "Interviewee", :class => "inlineb") %>
+				<%= label_tag(:role_Interviewee, "Interviewee", :class => "inlineb") %>
+			</div>
+			<%= submit_tag("Enter Interview Room", :class => "btn-small") %>
+		<% end %>
+	</div>
+</div>

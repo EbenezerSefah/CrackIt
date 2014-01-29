@@ -1,0 +1,16 @@
+<div class="int-room inlineb">
+	<h1>Interview Room (<%= params["role"]%>)</h1>
+	<div class="int-main-left inlineb">
+		<div class="int-vid inlineb">
+			<%= image_tag("video_placeholder.jpg")%>
+		</div>
+		<div class="int-code inlineb">
+			<textarea class = "interview-code" placeholder='Code Here'></textarea>
+		</div>
+	</div>
+	<div class="int-main-right inlineb int-note">
+		<textarea class = "personal-notes" placeholder='Personal Notes Here'></textarea>
+	</div>
+
+	<button class="btn-small save-sesh" data-id= "<%= current_user.id%>" data-sesh = "<%= params['session_id'] %>">Save Session</button>
+</div>

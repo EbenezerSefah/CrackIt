@@ -14,12 +14,7 @@
 	<p class="alert alert-error"><%= alert%></p>
 <%end%>
 
-<%if current_user%>
-	<div>
-		<%=current_user.email%> is signed in.
-		<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-	</div>
-<%end%>
+<%= render 'partials/navbar' %>
 <%= yield %>
 
 </body>

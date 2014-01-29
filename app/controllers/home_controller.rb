@@ -5,7 +5,11 @@ class HomeController < ApplicationController
 	end
 
 	def dashboard
+		sess = Session.where(:creator_id => current_user.id )
+		@old_sesh = sess.select {|one| one.time < Time.now}
+		@new_sesh = sess.select {|one| one.time > Time.now}
 	end
+
 
 	private
 	def check_logged_in

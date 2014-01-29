@@ -1,0 +1,58 @@
+// Place all the styles related to the interview controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.int-room{
+	width: 1280px;
+	h1{
+		text-align: center;
+	}
+	.int-main-left{
+		width: 635px;
+		height: 510px;
+		vertical-align: top;
+		.int-vid{
+			width: 620px;
+			height: 300px;
+			padding: 10px;
+			img {
+				width: 620px;
+				height: 295px;
+				border-radius: 20px;
+			}
+		}
+		.int-code{
+			width: 610px;
+			vertical-align: bottom;
+			height: 170px;
+			padding: 10px;
+			textarea{
+				color: red;
+				background-color: black;
+				width: 607px;
+				height: 100%;
+			}
+		}
+	}
+	.int-main-right{
+		width: 635px;
+		height: 500px;
+		vertical-align: top;
+		textarea{
+			width: 635px;
+			height: 500px;
+			color: #7e30cd;
+			background-color: #ccecd8;
+		}
+	}
+	button{
+		width: 1280px;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+}
+
+.int-setup{
+	margin-left: 40%;
+	margin-top: 10%;
+	text-align: center;
+}
